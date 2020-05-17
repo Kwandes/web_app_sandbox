@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+
+    <link th:href="@{/styles/index.css}" rel="stylesheet"/>
+
+    <!-- Add javascript code for a sticky header. Jquery is a requirement/dependency needed for it to work -->
+    <script type="text/javascript" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/stickyHeader.js}"></script>
+</head>
+
+<body>
+<div id="container">
+    <!--
+        A header that sticks to the top of your screen as you scroll
+        Requires some simple javascript, linked in head (stickyHeader.js and jquery, which is required for that js to work)
+     -->
+    <!-- Disable the sticky header <script>
+        Sticky();
+    </script> -->
+    <div id="StickyHeader">
+        <div id="header">
+            <a href="#placeholder">
+                <div class="Title">
+                    <span style="font-size:80px;line-height:70px">Web App Sandbox - Person</span>
+                    </br>
+                    <span style="line-height:50px;">(。U⁄ ⁄ω⁄ ⁄U 。)</span>
+                </div>
+            </a>
+            <!--Navigation options
+                Each menu option has a specific width and height, defined explicitly
+                Navigation Sets are groups of menu options
+                Menu options also contain a link but are styled to not be underlined etc
+            -->
+            <div id="NavigationMenu">
+                <div class="NavigationSet">
+                    <div class="menuoption" style="height:35px;width:60px;">
+                        <a href="/person" style="text-decoration:none; color:inherit;">Person</a>
+                    </div>
+                    <div class="menuoption" style="height:35px;width:40px;">
+                        <a href="/car" style="text-decoration:none; color:inherit;">Car</a>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <!--End of the navigation menu-->
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <!-- End of the sticky header -->
+
+    <div id="content">
+        <div id="sqlData">
+            <!--    <div id="addPerson">
+                    <h4>add people</h4>
+                    <input type="text">
+                </div>
+                <div id="listOfData">
+                    <h3>people go here</h3>
+                </div>
+            </div> -->
+            <div id="addPerson">
+                <div id="buttonArea">
+                    <div id="addButton">
+                        Add a new Person
+                    </div>
+                    <div id="expandedAddButton">
+                        <form action="/addPerson" method="POST">
+                            <span id="addPersonText">Add new Person</span><br>
+                            <input type="text" class="inputPerson" name="firstName" placeholder="First Name" maxlength="20"><br>
+                            <input type="text" class="inputPerson" name="lastName" placeholder="Last Name" maxlength="30"><br>
+                            <button class="dataOptionButton" type="submit">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="listOfData">
+                <table class="dataTable">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="main" th:each="person: ${personList}">
+                        <td th:text="${person.id}"></td>
+                        <td th:text="${person.firstName}"></td>
+                        <td th:text="${person.lastName}"></td>
+                        <td class="tableOptions">
+                            <img th:src="@{/img/doubleChevron.png}" alt=">>">
+                            <div class="tableOptionButtons">
+                                <form action="/editPerson" method="POST">
+                                    <button class="dataOptionButton" type="submit" name="personID" th:value="${person.id}">edit</button>
+                                </form>
+                                <form action="/deletePerson" method="POST">
+                                    <button class="dataOptionButton" type="submit" name="personID" th:value="${person.id}">remove</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

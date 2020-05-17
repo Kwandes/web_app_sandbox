@@ -1,0 +1,328 @@
+/*
+    handles person, editPerson, car and editCar html files
+ */
+
+html, body {
+    /* By default, body/html have a very small margin which might mess things up */
+    margin: 0;
+}
+
+body /* Yes, you can define styles for a given element multiple times */
+{
+    background-color: #404040;
+    background-image: url(/img/swirl_pattern.png);
+    background-size: auto;
+    color: black;
+}
+
+/*
+    Header and the sticky header styling
+ */
+
+#header {
+    background-color: #333333;
+    background-image: url(/img/swirl_pattern.png);
+    width: 100%;
+    height: 121px;
+    color: #c98cf5;
+
+    -webkit-box-shadow: 4px -4px 15px 0px #FF1F1F, 12px -11px 7px 0px #FF9376, 20px -5px 7px 0px #FFE264, 20px 6px 7px 0px #F6FF33, 13px 12px 17px 0px #FF9527, 2px 17px 17px 0px #FF0000, -9px 21px 18px 0px #FFF212, -9px 6px 11px 0px #FF0808, -11px -9px 11px 0px #FFFA17, -11px -9px 11px 0px #FFFA17, 0px 15px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 4px -4px 15px 0px #FF1F1F, 12px -11px 7px 0px #FF9376, 20px -5px 7px 0px #FFE264, 20px 6px 7px 0px #F6FF33, 13px 12px 17px 0px #FF9527, 2px 17px 17px 0px #FF0000, -9px 21px 18px 0px #FFF212, -9px 6px 11px 0px #FF0808, -11px -9px 11px 0px #FFFA17, -11px -9px 11px 0px #FFFA17, 0px 15px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.Title {
+    margin-left: 10%;
+    color: #c98cf5;
+    font-size: 25px;
+    font-weight: bold;
+    float: left;
+    text-align: left;
+}
+
+#NavigationMenu {
+    margin-left: 5%;
+    float: left;
+    margin-top: 28px;
+    display: inline;
+}
+
+
+.NavigationSet {
+    float: left;
+    display: inline-block;
+}
+
+.menuoption {
+    float: left;
+    font-color: #c98cf5;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+a {
+    color: #333333;
+}
+
+.menuoption:hover {
+    color: #c98cf5;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.menuoption:link {
+    color: #c98cf5;
+    text-decoration: none;
+}
+
+.menuoption:active {
+    color: #c98cf5;
+    text-decoration: none;
+}
+
+.NavigationOption {
+    margin-left: 5%;
+    margin-top: 3px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    font-color: #666666;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px;
+    padding-left: 20px;
+    padding-bottom: 2px;
+    background-color: #DDDDDD;
+    height: 35px;
+}
+
+.NavigationOption:first-child {
+    margin-top: 0px;
+}
+
+.NavigationOption:hover {
+    background-color: #0896fe;
+    cursor: pointer;
+}
+
+.stickyLogo /* Used by stickyHeader.js */
+{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+/*
+    Content styling
+ */
+
+#content {
+    width: min-content;
+    margin: 100px auto;
+    padding: 50px 50px 30px;
+
+    height: auto;
+    /* text-align: justify
+       Content spaces out such that as many blocks fit onto one line as possible and
+       the first word on that line is along the left edge and the last word is along the right edge. */
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 10px 10px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 10px 10px 15px 5px rgba(0, 0, 0, 0);
+    border-radius: 10px 10px 10px 10px;
+
+    color: black;
+}
+
+#sqlData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addPerson, #addCar {
+    width: 475px;
+    height: 300px;
+
+    position: relative;
+}
+
+#buttonArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Center the add buttons stuff */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#addButton {
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    padding: 15px;
+
+    border: #624AB7 1px solid;
+    box-shadow: 13px 15px 12px 3px rgba(0, 0, 0, 0.75);
+    border-radius: 100px 100px 100px 100px;
+
+    transform: rotate(-90deg) translate(0, 100px);
+}
+
+#expandedAddButton {
+    width: 200px;
+    display: none;
+    padding: 50px;
+    margin: auto;
+
+    border: #624AB7 1px solid;
+    border-radius: 100px 100px 100px 100px;
+
+    -webkit-box-shadow: 7px -5px 10px 0px #4B0082, 11px -9px 10px 0px #0000FF, 16px -14px 10px 0px #00FF00, 20px -17px 10px 0px #FFFF00, 24px -19px 10px 0px #FF7F00, 27px -23px 10px 0px #FF0000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 7px -5px 10px 0px #4B0082, 11px -9px 10px 0px #0000FF, 16px -14px 10px 0px #00FF00, 20px -17px 10px 0px #FFFF00, 24px -19px 10px 0px #FF7F00, 27px -23px 10px 0px #FF0000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    background: #9400D3;
+}
+
+#buttonArea:hover #expandedAddButton {
+    display: inline-block;
+}
+
+#buttonArea:hover #addButton {
+    display: none;
+}
+
+#addPersonText, #addCarText {
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+    color: #FFFFFF;
+    background: #9400D3;
+}
+
+.inputPerson, .inputCar {
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, orange, yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, orange, yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
+}
+
+/*
+    table layout of person/car data
+ */
+
+#listOfData {
+    width: 475px;
+}
+
+
+    table.dataTable {
+        border: 0px solid #FFFFFF;
+        width: 350px;
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    table.dataTable td, table.dataTable th {
+        padding: 3px 2px;
+    }
+
+    table.dataTable tbody td {
+        font-size: 15px;
+    }
+
+    table.dataTable tbody tr:nth-child(even) {
+        background: #F5EEF5;
+    }
+
+    table.dataTable tbody tr:hover {
+        background: #f1b8f2;
+    }
+
+    table.dataTable tbody tr:nth-child(even):hover {
+        background: #c98cf5;
+    }
+
+    table.dataTable thead {
+        background: #c98cf5;
+        border-bottom: 5px solid #FFFFFF;
+    }
+
+    table.dataTable thead th {
+        font-size: 17px;
+        font-weight: bold;
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+    table.dataTable tfoot td {
+        font-size: 14px;
+    }
+
+    /* Expanding menu with edit and remove buttons */
+
+    table.dataTable .tableOptions {
+        position: relative;
+    }
+
+    table.dataTable .tableOptionButtons {
+        display: none;
+        width: 100px;
+        height: 20px;
+        /* Center vertically the option buttons */
+        position: absolute;
+        top: 50%;
+        padding: 2px 3px 2px 24px;
+        margin-top: -14px;
+    }
+
+    table.dataTable img {
+        height: 12px;
+        width: 12px;
+        object-fit: scale-down;
+        float: left;
+        position: relative;
+        left: 0px;
+        text-align: left;
+    }
+
+    table.dataTable .tableOptions:hover img {
+        height: 17px;
+    }
+
+    table.dataTable .tableOptions:hover .tableOptionButtons {
+        display: flex;
+    }
+
+    /* Data option button stuff */
+    .dataOptionButton {
+        box-shadow: inset 0px 1px 0px 0px #e8d56a;
+        background: linear-gradient(to bottom, #f07ad8 5%, #e9bbf0 100%);
+        background-color: #f07ad8;
+        border-radius: 6px;
+        border: 1px solid #ab3720;
+        display: inline-block;
+        cursor: pointer;
+        color: #9e0ee6;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 0px 20px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #ded17c;
+        margin-right: 2px;
+    }
+
+    .dataOptionButton:hover {
+        background: linear-gradient(to bottom, #e9bbf0 5%, #f07ad8 100%);
+        background-color: #e9bbf0;
+    }
+
+    .dataOptionButton:active {
+        position: relative;
+        top: 1px;
+    }
