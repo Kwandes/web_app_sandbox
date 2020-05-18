@@ -10,7 +10,7 @@
     </parent>
     <groupId>dev.hoteals</groupId>
     <artifactId>web_app_sandbox</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>web_app_sandbox</name>
     <description>A sandbox webb app project for testing various hosting services, plugins etc</description>
 
@@ -88,6 +88,7 @@
                 </executions>
             </plugin>
         </plugins>
+
     </build>
 
 </project>
