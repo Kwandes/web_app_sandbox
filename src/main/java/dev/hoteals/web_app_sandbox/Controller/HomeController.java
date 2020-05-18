@@ -28,20 +28,20 @@ public class HomeController
     {
         List<Person> personList = personService.fetchAll();
         model.addAttribute("personList", personList);
-        return "/home/person";
+        return "home/person";
     }
 
     @PostMapping("/addPerson")
     public String addPerson ( @ModelAttribute Person person ){
         personService.addPerson( person );
-        return "redirect:/person";
+        return "redirect:person";
     }
 
     @PostMapping("/deletePerson")
     public String deletePerson (WebRequest wr) {
         int personID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("personID")));
         Boolean deleted = personService.deletePerson(personID);
-        return "redirect:/person";
+        return "redirect:person";
     }
 
     @PostMapping("/editPerson")
@@ -49,7 +49,7 @@ public class HomeController
     {
         Person person = personService.findPersonByID(Integer.parseInt(Objects.requireNonNull(wr.getParameter("personID"))));
         model.addAttribute("person", person);
-        return "/home/editPerson";
+        return "home/editPerson";
     }
 
     @PostMapping("/savePerson")
@@ -59,7 +59,7 @@ public class HomeController
         int personID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("personID")));
         Person person = new Person ( personID, firstName, lastName );
         personService.updatePerson(person);
-        return "redirect:/person";
+        return "redirect:person";
     }
     //endregion
 
@@ -72,20 +72,20 @@ public class HomeController
     {
         List<Car> carList = carService.fetchAll();
         model.addAttribute("carList", carList);
-        return "/home/car";
+        return "home/car";
     }
 
     @PostMapping("/addCar")
     public String addCar( @ModelAttribute Car car ) {
         carService.addCar(car);
-        return "redirect:/car";
+        return "redirect:car";
     }
 
     @PostMapping("/deleteCar")
     public String deleteCar (WebRequest wr) {
         int carID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("carID")));
         carService.deleteCar(carID);
-        return "redirect:/car";
+        return "redirect:car";
     }
 
     @PostMapping("/editCar")
@@ -94,7 +94,7 @@ public class HomeController
         int carID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("carID")));
         Car car = carService.findCarByID(carID);
         model.addAttribute("car", car);
-        return "/home/editCar";
+        return "home/editCar";
     }
 
     @PostMapping("/saveCar")
@@ -105,7 +105,7 @@ public class HomeController
         String color = wr.getParameter("color");
         Car car = new Car (carID, brand, model, color);
         carService.updateCar(car);
-        return "redirect:/car";
+        return "redirect:car";
     }
     //endregion
 }

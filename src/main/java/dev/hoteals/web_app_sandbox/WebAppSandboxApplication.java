@@ -2,9 +2,10 @@ package dev.hoteals.web_app_sandbox;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class WebAppSandboxApplication
+public class WebAppSandboxApplication extends SpringBootServletInitializer
 {
 
     public static void main(String[] args)
