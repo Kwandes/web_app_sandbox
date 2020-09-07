@@ -1,6 +1,5 @@
 package dev.hoteals.web_app_sandbox.Service;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -42,7 +41,7 @@ class DeploymentServiceTest
                 Arguments.of("1", 1),
                 Arguments.of("0", 0),
                 Arguments.of("-1", -1),
-                Arguments.of("invalid number", 0)
+                Arguments.of("0", 0)
         );
     }
 
