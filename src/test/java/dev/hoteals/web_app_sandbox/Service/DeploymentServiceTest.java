@@ -34,4 +34,22 @@ class DeploymentServiceTest
     {
         assertEquals(DeploymentService.stringify(number), expected);
     }
+
+
+    private static Stream<Arguments> parseToIntArguments()
+    {
+        return Stream.of(
+                Arguments.of("1", 1),
+                Arguments.of("0", 0),
+                Arguments.of("-1", -1),
+                Arguments.of("invalid number", 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("parseToIntArguments")
+    void parseToInt(String text, int expected)
+    {
+        assertEquals(DeploymentService.parseToInt(text), expected);
+    }
 }

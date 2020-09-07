@@ -16,4 +16,9 @@ public class DeploymentService
     {
         return Integer.toString(number);
     }
+
+    public static int parseToInt(String text)
+    {
+        return Integer.parseInt(text);
+    }
 }
