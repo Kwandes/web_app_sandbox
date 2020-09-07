@@ -8,9 +8,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-    
-env:
-  WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
 
 jobs:
   build:
@@ -23,3 +20,5 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      env:
+        WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
