@@ -8,19 +8,18 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+    
+env:
+  WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
       uses: actions/setup-java@v1
       with:
         java-version: 11
-      env:
-        WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
