@@ -1,5 +1,7 @@
 <a><img  src="https://www.safetica.com/blog/wp-content/uploads/2014/03/IMG_0016.jpg" title="WebAppSandbox" alt="Web App Sandbox"></a>
 
+[![CodeFactor](https://www.codefactor.io/repository/github/kwandes/web_app_sandbox/badge)](https://www.codefactor.io/repository/github/kwandes/web_app_sandbox)
+
 # Web App Sanbox - Java Springboot Testing Ground
 
 > A simply repository for testing and implemention of various different Java Springboot related technologies, including different hosting services
