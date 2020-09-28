@@ -21,7 +21,7 @@ jobs:
         java-version: 11
     - name: Install Google Chrome
       run: |
-        chmod +x ./scripts/InstallChrome.sh
-         ./scripts/InstallChrome.sh
+        chmod +x ./scripts/installChrome.sh
+         ./scripts/installChrome.sh
     - name: Run Functional Tests
       run: mvn -Dtest=dev.hotdeals.treecreate.functional.** test
