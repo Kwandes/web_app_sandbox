@@ -23,10 +23,15 @@ jobs:
       run: |
         chmod +x ./scripts/installChrome.sh
          ./scripts/installChrome.sh
-    - name: Run Functional Tests
+    - name: Run The Webserver
       run: |
         mvn -B package --file pom.xml
         java -jar target/*.jar &
-        mvn -Dtest=dev.hoteals.web_app_sandbox.functional.** test
       env:
         WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
+    - name: Wait 30 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '30s'
+    - name: Run Functional tests
+      run: mvn -Dtest=dev.hoteals.web_app_sandbox.functional.** test
