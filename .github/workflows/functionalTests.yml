@@ -24,4 +24,4 @@ jobs:
         chmod +x ./scripts/installChrome.sh
          ./scripts/installChrome.sh
     - name: Run Functional Tests
-      run: mvn -Dtest=dev.hoteals.web_app_sandbox.functional.** test
+      run: mvn --no-transfer-progress -Dtest=dev.hoteals.web_app_sandbox.functional.** test
