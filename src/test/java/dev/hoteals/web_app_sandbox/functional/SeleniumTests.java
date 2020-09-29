@@ -36,6 +36,9 @@ public class SeleniumTests
     {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
         webDriver = new ChromeDriver(options);
         webDriver.navigate().to("localhost:5000");
         webDriver.manage().window().maximize();
