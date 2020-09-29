@@ -4,8 +4,6 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.springframework.test.context.event.annotation.AfterTestClass;
-import org.springframework.test.context.event.annotation.BeforeTestClass;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.util.concurrent.TimeUnit;
@@ -40,7 +38,7 @@ public class SeleniumTests
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
         webDriver = new ChromeDriver(options);
-        webDriver.navigate().to("localhost:5000");
+        webDriver.get("http://localhost:5000");
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
@@ -48,6 +46,7 @@ public class SeleniumTests
     @Test
     public void getIndexTitleTest()
     {
+        webDriver.get("http://localhost:5000");
         assertThat(webDriver.getTitle()).isEqualTo("Person");
     }
 
