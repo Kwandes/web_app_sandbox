@@ -26,7 +26,7 @@ jobs:
     - name: Run Functional Tests
       run: |
         mvn -B package --file pom.xml
-        java -jar target/*.jar
+        java -jar target/*.jar &
         mvn -Dtest=dev.hoteals.web_app_sandbox.functional.** test
       env:
         WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
