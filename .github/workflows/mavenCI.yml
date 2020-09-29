@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Java CI - Functional Tests
+name: Java CI - Maven
 
 on:
   push:
@@ -23,9 +23,15 @@ jobs:
       run: mvn -B package --file pom.xml
       env:
         WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
+    - name: Upload packaged jar
+      uses: actions/upload-artifact@v2
+      with:
+        name: project.jar
+        path: /target/*.jar
         
   Run-functional-tests:
     runs-on: ubuntu-latest
+    needs: Build-package
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -36,10 +42,13 @@ jobs:
       run: |
         chmod +x ./scripts/installChrome.sh
          ./scripts/installChrome.sh
+         
+    - name: Download package.jar
+      uses: actions/download-artifact@v2
+      with:
+        name: project.jar
     - name: Run The Webserver
-      run: |
-        mvn -B package --file pom.xml
-        java -jar target/*.jar &
+      run: java -jar project.jar &
       env:
         WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
     - name: Wait 30 seconds
