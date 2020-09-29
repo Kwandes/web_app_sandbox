@@ -35,7 +35,8 @@ public class SeleniumTests
     public static void setup()
     {
         WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        webDriver = new ChromeDriver(options);
         webDriver.navigate().to("localhost:5000");
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
