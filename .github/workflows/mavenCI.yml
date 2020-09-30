@@ -51,7 +51,10 @@ jobs:
     - run: java -jar project.jar &
       env:
         WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
-      
+        
+    - name: Debug
+      run: ls -a1
+    
     - name: Wait 30 seconds
       uses: jakejarvis/wait-action@master
       with:
