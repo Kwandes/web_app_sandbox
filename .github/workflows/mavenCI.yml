@@ -11,7 +11,7 @@ on:
     branches: [ production ]
 
 jobs:
-  Package and Test:
+  Package_and_Test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -31,9 +31,9 @@ jobs:
         name: project.jar
         path: target/*.jar
         
-  Run Functional Tests:
+  Run_Functional_Tests:
     runs-on: ubuntu-latest
-    needs: Package and Test
+    needs: Package_and_Test
     steps:
     - uses: actions/checkout@v2
       
