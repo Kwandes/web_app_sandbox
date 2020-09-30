@@ -38,22 +38,24 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11
+      
     - name: Install Google Chrome
       run: |
         chmod +x ./scripts/installChrome.sh
          ./scripts/installChrome.sh
          
-    - name: Download package.jar
+    - name: Download and run package.jar
       uses: actions/download-artifact@v2
       with:
         name: project.jar
-    - name: Run The Webserver
-      run: java -jar project.jar &
+    - run: java -jar project.jar &
       env:
         WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
+      
     - name: Wait 30 seconds
       uses: jakejarvis/wait-action@master
       with:
         time: '30s'
+     
     - name: Run Functional tests
       run: mvn -Dtest=dev.hoteals.web_app_sandbox.functional.** test
