@@ -66,4 +66,4 @@ jobs:
         time: '30s'
      
     - name: Run Functional tests
-      run: mvn -Dtest=dev.hoteals.web_app_sandbox.functional.** test
+      run: mvn --no-transfer-progress -Dtest=dev.hoteals.web_app_sandbox.functional.** test
