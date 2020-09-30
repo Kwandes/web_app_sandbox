@@ -28,6 +28,7 @@ public class SeleniumTests
     }
 
     private static WebDriver webDriver;
+    private final static int port = 5000;
 
     @BeforeAll
     public static void setup()
@@ -38,7 +39,7 @@ public class SeleniumTests
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
         webDriver = new ChromeDriver(options);
-        webDriver.get("http://localhost:5000");
+        webDriver.get("http://localhost:" + port);
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
@@ -46,8 +47,8 @@ public class SeleniumTests
     @Test
     public void getIndexTitleTest()
     {
-        webDriver.get("http://localhost:5000");
-        assertThat(webDriver.getTitle()).isEqualTo("Person");
+        webDriver.get("http://localhost:" + port);
+        assertThat(webDriver.getTitle()).isEqualTo("Welcome");
     }
 
     @AfterAll

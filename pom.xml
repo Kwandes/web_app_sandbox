@@ -73,6 +73,7 @@
             <version>5.2.1</version>
         </dependency>
 
+        <!-- Functional testing - Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
