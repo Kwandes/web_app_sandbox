@@ -97,54 +97,24 @@
                         <exclude>**/functional/**</exclude>
                     </excludes>
                 </configuration>
+
             </plugin>
 
+            <!-- Packaging the jar into an executable form -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.6.RELEASE</version>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>build-info</goal>
+                            <goal>repackage</goal>
                         </goals>
                         <configuration>
-                            <additionalProperties>
-                                <encoding.source>${project.build.sourceEncoding}</encoding.source>
-                                <encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
-                                <java.source>${maven.compiler.source}</java.source>
-                                <java.target>${maven.compiler.target}</java.target>
-                            </additionalProperties>
+                            <mainClass>dev.hoteals.web_app_sandbox.WebAppSandboxApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-webapp-maven-plugin</artifactId>
-                <version>1.9.1</version>
-                <configuration>
-                    <schemaVersion>V2</schemaVersion>
-                    <resourceGroup>WebApp</resourceGroup>
-                    <appName>Motorhome</appName>
-                    <pricingTier>P1v2</pricingTier>
-                    <region>northeurope</region>
-                    <runtime>
-                        <os>linux</os>
-                        <javaVersion>java11</javaVersion>
-                        <webContainer>java11</webContainer>
-                    </runtime>
-                    <deployment>
-                        <resources>
-                            <resource>
-                                <directory>${project.basedir}/target</directory>
-                                <includes>
-                                    <include>*.jar</include>
-                                </includes>
-                            </resource>
-                        </resources>
-                    </deployment>
-                </configuration>
             </plugin>
         </plugins>
     </build>
