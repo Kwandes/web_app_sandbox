@@ -44,16 +44,24 @@ jobs:
         chmod +x ./scripts/installChrome.sh
          ./scripts/installChrome.sh
          
-    - name: Download and run package.jar
+    - name: Download package.jar artifact
       uses: actions/download-artifact@v2
       with:
         name: project.jar
-    - run: java -jar project.jar &
+      
+    - name: Debug before renaming
+      run: ls -a1
+      
+    - name: Convert the jar to a runnable version
+      run: mv *.jar project.jar
+      
+    - name: Debug after renaming
+      run: ls -a1
+      
+    - name: Run the Webserver
+      run: java -jar project.jar &
       env:
         WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
-        
-    - name: Debug
-      run: ls -a1
     
     - name: Wait 30 seconds
       uses: jakejarvis/wait-action@master
