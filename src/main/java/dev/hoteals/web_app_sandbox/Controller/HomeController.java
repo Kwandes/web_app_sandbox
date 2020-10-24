@@ -113,4 +113,11 @@ public class HomeController
         return "redirect:car";
     }
     //endregion
+
+    @GetMapping("/conke")
+    public String conke()
+    {
+        return "home/conke";
+    }
+
 }
