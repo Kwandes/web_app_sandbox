@@ -25,9 +25,3 @@ jobs:
       run: mvn -B package --file pom.xml
       env:
         WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
-
-    - name: Upload packaged jar
-      uses: actions/upload-artifact@v2
-      with:
-        name: project.jar
-        path: target/*.jar
