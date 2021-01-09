@@ -12,7 +12,7 @@
     </parent>
     <groupId>dev.hoteals</groupId>
     <artifactId>web_app_sandbox</artifactId>
-    <version>2.5.13</version>
+    <version>3.0.0</version>
     <name>web_app_sandbox</name>
     <description>A sandbox webb app project for testing various hosting services, plugins etc</description>
     <properties>
