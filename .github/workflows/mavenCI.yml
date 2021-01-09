@@ -4,11 +4,12 @@
 name: Java CI - Maven
 
 on:
-  push:
-    branches:
-      - '**' # matches every branch
-  pull_request:
-    branches: [ production ]
+  #push:
+    #branches:
+    #  - '**' # matches every branch
+  #pull_request:
+    #branches: [ production ]
+ workflow_dispatch:
 
 jobs:
   Package_and_Test:
