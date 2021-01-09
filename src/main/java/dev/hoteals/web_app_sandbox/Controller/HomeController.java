@@ -22,6 +22,11 @@ public class HomeController
     @Autowired
     PersonService personService;
 
+    @GetMapping({"", "/", "/index", "/index/"})
+    public String index()
+    {
+        return "redirect:/person";
+    }
 
     @GetMapping("/person")
     public String person(Model model)
@@ -108,4 +113,11 @@ public class HomeController
         return "redirect:car";
     }
     //endregion
+
+    @GetMapping("/conke")
+    public String conke()
+    {
+        return "home/conke";
+    }
+
 }
