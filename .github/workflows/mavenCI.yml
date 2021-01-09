@@ -22,6 +22,7 @@ jobs:
         java-version: 11
 
     - name: Build with Maven
+      working-directory: ./web-app-sandbox/apps/old-java-app
       run: mvn -B package --file pom.xml
       env:
         WEBSANDBOX_JDBC_URL: ${{ secrets.WEBSANDBOX_JDBC_URL }}
