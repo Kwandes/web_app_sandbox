@@ -121,3 +121,40 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 ```
+
+## git-cz and Commitizen
+
+To follow [Angular commit message conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines), install git-cz and Commitizen
+
+[git-cz docs](https://github.com/streamich/git-cz)
+I installed globally with with Commitizen as below
+
+```shell
+npm install -g commitizen git-cz
+commitizen init git-cz --save-dev --save-exact
+```
+_If you install `commitizen` and `git-cz` locally, you will have to run `npx git cz` instead_
+
+
+Then use below command to commit staged files:
+
+```shell
+git cz
+```
+
+And use of the the predefined types to describe your commit
+![git-cz commit types](git-cz.png)
+
+## In action:
+
+semantic-release automatically determine the type of change depending on the commit messages. There are [3 types of commits](https://github.com/semantic-release/semantic-release#commit-message-format) that trigger version change
+
+Below test commit messages with provided `git-cz` commit types.
+
+- `perf` type triggers major release
+
+![Major change release](perf_commit_type.jpg)
+
+- `fix` and `feat` types trigger patch and minor releases
+
+![patch and minor release](patch_and_minor_release.jpg)
