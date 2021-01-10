@@ -135,7 +135,6 @@ commitizen init git-cz --save-dev --save-exact
 ```
 _If you install `commitizen` and `git-cz` locally, you will have to run `npx git cz` instead_
 
-
 Then use below command to commit staged files:
 
 ```shell
