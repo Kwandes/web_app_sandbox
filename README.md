@@ -38,6 +38,7 @@ The following variables can be edited:
 
 All variables have to be configured properly in order for the application to work
 
+
 License
 -
 The Software is released under an [MIT license](https://opensource.org/licenses/MIT)
