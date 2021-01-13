@@ -21,9 +21,17 @@ jobs:
             TEST_VAR="custom var"
           fi
 
-      - name: Test the var 2
+      - name: Test the var 2A
         run: |-
           echo "TEST VAR: $TEST_VAR ."
+          
+      - name: Test the var 2B
+        run: |-
+          echo "TEST VAR: "$TEST_VAR"."
+          
+      - name: Test the var 2C
+        run: |-
+          echo "TEST VAR: " $TEST_VAR
 
       - name: Test the var 3
         run: |-
