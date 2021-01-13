@@ -18,7 +18,7 @@ jobs:
       - name: Test the var
         run: |-
           if [[ -z $TEST_VAR ]]; then
-            export TEST_VAR="custom var"
+            echo "::set-env name=TEST_VAR::custom"
           fi
           echo "First TEST VAR: $TEST_VAR ."
 
@@ -28,6 +28,8 @@ jobs:
           
       - name: Test the var 2B
         run: |-
+        
+          echo "::set-env name=TEST_VAR::custom var"
           echo "TEST VAR: "$TEST_VAR"."
           
       - name: Test the var 2C
