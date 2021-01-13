@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    name: Build and Publish Docker Image for API in staging
+    name: Test the env vars
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,7 +18,7 @@ jobs:
       - name: Test the var
         run: |-
           if [[ -z $TEST_VAR ]]; then
-            echo "::set-env TEST_VAR=custom"
+            TEST_VAR="custom var"
             echo "TEST var was empty"
           else
             echo "TEST var was not empty"
@@ -44,3 +44,18 @@ jobs:
             echo "TEST var3 was not empty"
           fi
           echo "TEST VAR: $TEST_VAR3"
+
+  test2:
+    name: Test more vars
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test the var
+        run: |-
+          if [[ -z $TEST_VAR ]]; then
+            echo "TEST var was empty, but IO won't set a new one"
+          else
+            echo "TEST var was not empty"
+          fi
+          echo "TEST VAR: $TEST_VAR"
