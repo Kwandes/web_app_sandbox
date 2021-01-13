@@ -18,7 +18,7 @@ jobs:
       - name: Test the var
         run: |-
           if [[ -z $TEST_VAR ]]; then
-            TEST_VAR="custom var"
+            export TEST_VAR="custom var"
           fi
           echo "First TEST VAR: $TEST_VAR ."
 
