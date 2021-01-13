@@ -23,7 +23,7 @@ jobs:
 
       - name: Test the var 2
         run: |-
-          echo "TEST VAR: $TEST_VAR"
+          echo "TEST VAR: $TEST_VAR ."
 
       - name: Test the var 3
         run: |-
@@ -33,7 +33,7 @@ jobs:
           else
             echo "TEST var3 was not empty"
           fi
-          echo "TEST VAR: $TEST_VAR3"
+          echo "TEST VAR: $TEST_VAR3 ."
 
   test2:
     name: Test more vars
@@ -48,4 +48,4 @@ jobs:
           else
             echo "TEST var was not empty"
           fi
-          echo "TEST VAR: $TEST_VAR"
+          echo "TEST VAR: $TEST_VAR ."
