@@ -2,6 +2,8 @@ name: Testing workflows
 
 env:
   TEST_VAR: ${{ github.event.release.tag_name }}
+  TEST_VAR2: "example 2"
+  TEST_VAR3: ${{ github.event.release.tag_name }}
 
 on:
   workflow_dispatch:
@@ -15,10 +17,30 @@ jobs:
         uses: actions/checkout@v2
       - name: Test the var
         run: |-
-          if [[ -z $TEST_URL ]]; then
+          if [[ -z $TEST_VAR ]]; then
             echo "::set-env TEST_VAR=custom"
             echo "TEST var was empty"
           else
             echo "TEST var was not empty"
           fi
           echo "TEST VAR: $TEST_VAR"
+
+      - name: Test the var 2
+        run: |-
+          if [[ -z $TEST_VAR2 ]]; then
+            TEST_VAR2="custom 2"
+            echo "TEST var2 was empty"
+          else
+            echo "TEST var2 was not empty"
+          fi
+          echo "TEST VAR: $TEST_VAR2"
+
+      - name: Test the var 3
+        run: |-
+          if [[ -z $TEST_VAR3 ]]; then
+            TEST_VAR3="custom 3"
+            echo "TEST var3 was empty"
+          else
+            echo "TEST var3 was not empty"
+          fi
+          echo "TEST VAR: $TEST_VAR3"
