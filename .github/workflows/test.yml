@@ -19,21 +19,11 @@ jobs:
         run: |-
           if [[ -z $TEST_VAR ]]; then
             TEST_VAR="custom var"
-            echo "TEST var was empty"
-          else
-            echo "TEST var was not empty"
           fi
-          echo "TEST VAR: $TEST_VAR"
 
       - name: Test the var 2
         run: |-
-          if [[ -z $TEST_VAR2 ]]; then
-            TEST_VAR2="custom 2"
-            echo "TEST var2 was empty"
-          else
-            echo "TEST var2 was not empty"
-          fi
-          echo "TEST VAR: $TEST_VAR2"
+          echo "TEST VAR: $TEST_VAR"
 
       - name: Test the var 3
         run: |-
