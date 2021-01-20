@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+    db:
+        image: postgres:latest
+        restart: unless-stopped
+        environment:
+            POSTGRES_DB: ${POSTGRES_DATABASE:-oribi}
+            POSTGRES_USER: ${POSTGRES_USER:-nerd}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-abcDEF123}
+        healthcheck:
+            test:
+                [
+                    'CMD-SHELL',
+                    'psql postgres://$${POSTGRES_USER}:$${POSTGRES_PASSWORD}@localhost:5432/$${POSTGRES_DB} || exit 1',
+                ]
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        ports:
+            - '5432:5432'
+        networks:
+            - test-net
+
+            
+volumes:
+    postgres_data:
+
+networks:
+    test-net:
+        driver: bridge

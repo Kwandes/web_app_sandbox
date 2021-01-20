@@ -1,0 +1,18 @@
+# Testing workflow for validating if docker-compose works properly
+
+name: Docker Compose test
+on:
+  workflow_dispatch:
+
+jobs:
+  docker-compose-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run docker-compose
+        run: |
+          docker-compose up
+      - name: Validate if there is a database container running
+        run: |
+          docker ps -a
