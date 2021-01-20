@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    name: E2E CI Tests - job name
     runs-on: ubuntu-latest
 
     steps:
