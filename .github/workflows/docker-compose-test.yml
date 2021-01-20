@@ -2,6 +2,8 @@
 
 name: Docker Compose test
 on:
+  push:
+    branches: [ development ]
   workflow_dispatch:
 
 jobs:
@@ -16,6 +18,9 @@ jobs:
         uses: jakejarvis/wait-action@master
         with:
           time: '20s'
-      - name: Validate if there is a database container running
+      - name: Print all containers
         run: |
           docker ps -a
+      - name: Validate if there is a database container running
+        run: |
+          contains(docker ps --filter "name=web_app_sandbox_db_1", "web_app_sandbox_db_1")
