@@ -11,6 +11,7 @@ on:
 
 jobs:
   build2:
+    name: Super custom name testnames.yml
     runs-on: ubuntu-latest
 
     steps:
