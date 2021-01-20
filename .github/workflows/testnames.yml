@@ -1,6 +1,6 @@
 # TEsting workflow not showing in repository settings as required status
 
-name: E2E CI Tests - version 2 - test names
+name: Testnames.yml Workflow Name
 on:
   push:
     branches: [ development ]
@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build2:
-    name: Super custom name testnames.yml
+  testnames:
+    name: Testnames.yml Job Name
     runs-on: ubuntu-latest
 
     steps:
