@@ -11,8 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run docker-compose
-        run: |
-          docker-compose up
+        run: docker-compose up -d
+      - name: Sleep for 20 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '20s'
       - name: Validate if there is a database container running
         run: |
           docker ps -a
