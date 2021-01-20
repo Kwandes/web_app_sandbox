@@ -23,4 +23,4 @@ jobs:
           docker ps -a
       - name: Validate if there is a database container running
         run: |
-          contains(docker ps --filter "name=web_app_sandbox_db_1", "web_app_sandbox_db_1")
+          contains('docker ps --filter "name=web_app_sandbox_db_1"', "web_app_sandbox_db_1")
