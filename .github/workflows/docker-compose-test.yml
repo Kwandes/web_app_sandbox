@@ -24,7 +24,9 @@ jobs:
       - name: Validate if there is a database container running
         run: |
           OUTPUT=$(docker ps --filter "name=web_app_sandbox_db_1")
-          if [[ $file =~ $testseq ]];
+          CONTAINER="web_app_sandbox_db_2"
+          echo $OUTPUT
+          if [[ $OUTPUT =~ $CONTAINER ]];
           then
               echo "True"
           else
