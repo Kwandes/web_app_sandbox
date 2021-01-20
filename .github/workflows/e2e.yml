@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  Custom job name:
     name: E2E CI Tests - job name
     runs-on: ubuntu-latest
 
