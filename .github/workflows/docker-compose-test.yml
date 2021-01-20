@@ -24,7 +24,7 @@ jobs:
       - name: Validate if there is a database container running
         run: |
           OUTPUT=$(docker ps --filter "name=web_app_sandbox_db_1")
-          CONTAINER="web_app_sandbox_db_2"
+          CONTAINER="web_app_sandbox_db_1"
           echo $OUTPUT
           if [[ $OUTPUT =~ $CONTAINER ]];
           then
