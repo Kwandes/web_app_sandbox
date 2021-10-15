@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Kwandes/web_app_sandbox/compare/v1.1.0...v1.2.0) (2021-10-15)
+
+
+### Features
+
+* 🎸 important change meaybe? You know, this is the test rep ([b117f5c](https://github.com/Kwandes/web_app_sandbox/commit/b117f5c9c5db01db940bdaf2263fa2b04596f75a))
+
 # [1.1.0](https://github.com/Kwandes/web_app_sandbox/compare/v1.0.0...v1.1.0) (2021-10-15)
 
 
