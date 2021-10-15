@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Kwandes/web_app_sandbox/compare/v1.0.0...v1.1.0) (2021-10-15)
+
+
+### Features
+
+* 🎸 Add semantic release ([0dc5914](https://github.com/Kwandes/web_app_sandbox/commit/0dc591461dd25bf7f388372f63bdc21637729e3f))
+
 # 1.0.0 (2021-01-14)
 
 
