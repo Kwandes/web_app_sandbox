@@ -7,6 +7,7 @@
 > A simply repository for testing and implemention of various different Java Springboot related technologies, including different hosting services
 
 Technologies Used
+
 -
 - Java 11
 - SpringBoot, JPA
